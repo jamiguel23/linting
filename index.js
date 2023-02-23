@@ -1,5 +1,16 @@
-var http = require("http");
-http.createServer(function(req,res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Aloha world');
-}).listen(process.env.PORT || 3000);
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) =>{
+  var title = 'home page';
+  res.render('index',{'title' : title});
+  // res.status(200).send('Ola world')
+});
+
+app.listen(PORT, () => {
+  console.log(`app running on ${PORT}, playa`)
+});
