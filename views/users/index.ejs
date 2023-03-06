@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<h1 style="margin-top:10%">Users</h1>
+
+  <p> Hello, This page pulls data from a JSON file where it is populating users using a for each function. Rendered using Node.js and ejs, this project a sample of the capabilities of both when rending a on a page.  </p>
+
+ <table class="table table-hover table-striped">
+	<thead>
+   	<tr>
+      	<th scope="col">First Name</th>
+      	<th scope="col">Last Name</th>
+      	<th scope="col">Email</th>
+   	</tr>
+	</thead>
+ <tbody>
+
+<% users.forEach(function(user){ %>
+  <tr>
+   	<td><a href="users/view/<%= user.id %>"><%= user.first_name %></a></td>
+   	<td><%= user.last_name %></td>
+   	<td><%= user.email %></td>
+  </tr>
+<% }); %>
+
+
+</tbody>
+</table>
+
+<%- include('../partials/footer') %>
